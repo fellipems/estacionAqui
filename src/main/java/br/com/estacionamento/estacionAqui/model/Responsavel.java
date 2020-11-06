@@ -1,20 +1,28 @@
 package br.com.estacionamento.estacionAqui.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
 import org.springframework.data.annotation.Id;
 
+@Entity(name = "responsavel")
 public class Responsavel {
 	
 	@Id
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_responsavel")
+	private Integer id;
 	private String nome;
 	private String cargo;
 	private String cpf;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

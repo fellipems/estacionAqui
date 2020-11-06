@@ -2,23 +2,59 @@ package br.com.estacionamento.estacionAqui.model;
 
 import java.util.Calendar;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
 import org.springframework.data.annotation.Id;
 
+@Entity(name = "estacionamento")
 public class Estacionamento {
 
 	@Id
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_estacionamento")
+	private Integer id;
+	
+	@Column(name = "hora_entrada")
 	private Calendar horaEntrada;
+	
+	@Column(name = "hora_saida")
 	private Calendar horaSaida;
+	
+	@Column(name = "data_entrada")
 	private Calendar dataEntrada;
+	
+	@Column(name = "data_saida")
 	private Calendar dataSaida;
+	
+	@Column(name = "tipo_pagamento")
 	private String tipoPagamento;
+	
+	@Column(name = "qtd_vagas")
+	private int qtdVagas;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "RESPONSAVEL_id_responsavel")
+	private Responsavel responsavel;
+	
+	public int getQtdVagas() {
+		return qtdVagas;
+	}
 
-	public Long getId() {
+	public void setQtdVagas(int qtdVagas) {
+		this.qtdVagas = qtdVagas;
+	}
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
