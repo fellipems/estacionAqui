@@ -2,16 +2,19 @@ package br.com.estacionamento.estacionAqui.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-import org.springframework.data.annotation.Id;
 
 @Entity
 public class ModeloVeiculo {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
-	@Column(name = "nome_model")
+	@Column(name = "nome_modelo")
 	private String modelo;
 
 	@Column(name = "marca")

@@ -4,20 +4,15 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 @Entity(name = "ticket")
 public class Ticket {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_ticket")
 	public Integer id;
 	
 	@Column(name = "hora_entrada")
@@ -25,11 +20,9 @@ public class Ticket {
 	
 	@Column(name = "hora_saida")
 	public Calendar horaSaida;
-	public String placa;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "VAGA_idVAGA")
-	private Vaga vaga;
+	@Column(nullable = false)
+	public String placa;
 	
 	public Integer getId() {
 		return id;

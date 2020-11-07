@@ -1,5 +1,8 @@
 package br.com.estacionamento.estacionAqui.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -7,20 +10,19 @@ import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-
-import org.springframework.data.annotation.Id;
 
 @Entity(name = "vaga")
 public class Vaga {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_vaga")
 	private Integer id;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo_vaga")
 	private TipoVeiculo vaga;
 	
@@ -28,15 +30,16 @@ public class Vaga {
 	private Long numeroVaga;
 	
 	@Enumerated(EnumType.STRING)
+	@Column(name = "status")
 	private StatusVaga status;
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "VEICULO_id_veiculo")
 	private Veiculo veiculo;
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "ESTACIONAMENTO_id_estacionamento")
-	private Estacionamento estacionamento;
+	private List<Estacionamento> estacionamento; 
 	
 	public Integer getId() {
 		return id;

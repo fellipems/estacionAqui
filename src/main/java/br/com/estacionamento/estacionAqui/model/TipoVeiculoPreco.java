@@ -4,10 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.Id;
 
-import org.springframework.data.annotation.Id;
-
-@Entity
+@Entity(name = "tipo_veiculo")
 public class TipoVeiculoPreco {
 	
 	@Id
@@ -18,6 +17,7 @@ public class TipoVeiculoPreco {
 	private double preco;
 	
 	@Enumerated(EnumType.STRING)
+	@Column(name = "tipo")
 	private TipoVeiculo tipo;
 
 	public Integer getId() {

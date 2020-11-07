@@ -4,18 +4,20 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 @Entity(name = "responsavel")
-public class Responsavel {
+public class ResponsavelDoEstacionamento {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_responsavel")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+	
+	@Column(nullable = false)
 	private String nome;
 	private String cargo;
+	
+	@Column(nullable = false, name = "cpf", length = 11, unique = true)
 	private String cpf;
 
 	public Integer getId() {

@@ -7,17 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-
-import org.springframework.data.annotation.Id;
 
 @Entity(name = "estacionamento")
 public class Estacionamento {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_estacionamento")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
 	@Column(name = "hora_entrada")
@@ -25,12 +23,6 @@ public class Estacionamento {
 	
 	@Column(name = "hora_saida")
 	private Calendar horaSaida;
-	
-	@Column(name = "data_entrada")
-	private Calendar dataEntrada;
-	
-	@Column(name = "data_saida")
-	private Calendar dataSaida;
 	
 	@Column(name = "tipo_pagamento")
 	private String tipoPagamento;
@@ -40,7 +32,7 @@ public class Estacionamento {
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "RESPONSAVEL_id_responsavel")
-	private Responsavel responsavel;
+	private ResponsavelDoEstacionamento responsavel;
 	
 	public int getQtdVagas() {
 		return qtdVagas;
@@ -74,22 +66,6 @@ public class Estacionamento {
 		this.horaSaida = horaSaida;
 	}
 
-	public Calendar getDataEntrada() {
-		return dataEntrada;
-	}
-
-	public void setDataEntrada(Calendar dataEntrada) {
-		this.dataEntrada = dataEntrada;
-	}
-
-	public Calendar getDataSaida() {
-		return dataSaida;
-	}
-
-	public void setDataSaida(Calendar dataSaida) {
-		this.dataSaida = dataSaida;
-	}
-
 	public String getTipoPagamento() {
 		return tipoPagamento;
 	}
@@ -97,5 +73,4 @@ public class Estacionamento {
 	public void setTipoPagamento(String tipoPagamento) {
 		this.tipoPagamento = tipoPagamento;
 	}
-
 }
