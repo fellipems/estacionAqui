@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
 
 
 @Entity(name = "cliente")
@@ -17,12 +18,14 @@ public class Cliente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private Long id;
 
-	@Column(nullable = false, name = "cpf", length = 11, unique = true)
+	@Column(name = "cpf", length = 11, unique = true)
+	@NotEmpty(message = "CPF não pode ser vazio!")
 	private String cpf;
 
-	@Column(name = "nome_cliente", nullable = false)
+	@Column(name = "nome_cliente")
+	@NotEmpty(message = "Nome não pode estar vazio!")
 	private String nome;
 
 	@Column(name = "telefone")
@@ -34,6 +37,14 @@ public class Cliente {
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "VEICULO_id_veiculo")
 	private List<Veiculo> veiculo;
+	
+	public List<Veiculo> getVeiculo() {
+		return veiculo;
+	}
+
+	public void setVeiculo(List<Veiculo> veiculo) {
+		this.veiculo = veiculo;
+	}
 
 	public String getCpf() {
 		return cpf;
@@ -43,11 +54,11 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -74,5 +85,4 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 }

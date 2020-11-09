@@ -6,7 +6,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 
-@Entity(name = "tipo_veiculo")
+@Entity(name = "tipo_veiculo_preco")
 public class TipoVeiculoPreco {
 	
 	@Id
@@ -19,7 +19,7 @@ public class TipoVeiculoPreco {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo")
 	private TipoVeiculo tipo;
-
+	
 	public Integer getId() {
 		return id;
 	}

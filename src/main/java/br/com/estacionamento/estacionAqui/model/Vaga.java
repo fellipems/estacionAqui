@@ -41,6 +41,22 @@ public class Vaga {
 	@JoinColumn(name = "ESTACIONAMENTO_id_estacionamento")
 	private List<Estacionamento> estacionamento; 
 	
+	public Veiculo getVeiculo() {
+		return veiculo;
+	}
+
+	public void setVeiculo(Veiculo veiculo) {
+		this.veiculo = veiculo;
+	}
+
+	public List<Estacionamento> getEstacionamento() {
+		return estacionamento;
+	}
+
+	public void setEstacionamento(List<Estacionamento> estacionamento) {
+		this.estacionamento = estacionamento;
+	}
+
 	public Integer getId() {
 		return id;
 	}

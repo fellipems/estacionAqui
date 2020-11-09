@@ -34,6 +34,14 @@ public class Estacionamento {
 	@JoinColumn(name = "RESPONSAVEL_id_responsavel")
 	private ResponsavelDoEstacionamento responsavel;
 	
+	public ResponsavelDoEstacionamento getResponsavel() {
+		return responsavel;
+	}
+
+	public void setResponsavel(ResponsavelDoEstacionamento responsavel) {
+		this.responsavel = responsavel;
+	}
+
 	public int getQtdVagas() {
 		return qtdVagas;
 	}

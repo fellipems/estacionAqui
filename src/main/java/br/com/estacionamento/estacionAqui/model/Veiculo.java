@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,35 +13,79 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotEmpty;
 
 @Entity(name = "veiculo")
 public class Veiculo {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	
-	@Column(name = "placa", nullable = false)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+
+	@Column(name = "placa", unique = true)
+	@NotEmpty(message = "Placa não pode estar vazia!")
 	private String placa;
-	
+
 	@Column(name = "cor")
 	private String cor;
-	
+
 	@Column(name = "ano_veiculo")
-	private int ano;
+	private Integer ano;
+
+	@Column(name = "nome_modelo")
+	private String modelo;
+
+	@Column(name = "marca")
+	private String marca;
 	
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "MODELO_id_modelo")
-	private List<ModeloVeiculo> modelo;
-	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "tipo_veiculo")
+	private TipoVeiculo tipoVeiculo;
+
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "TIPO_VEICULO_id_veiculo")
 	private List<TipoVeiculoPreco> precoPorTipo;
-	
+
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "TICKET_id_ticket")
 	private Ticket ticket;
 	
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public List<TipoVeiculoPreco> getPrecoPorTipo() {
+		return precoPorTipo;
+	}
+
+	public void setPrecoPorTipo(List<TipoVeiculoPreco> precoPorTipo) {
+		this.precoPorTipo = precoPorTipo;
+	}
+
+	public Ticket getTicket() {
+		return ticket;
+	}
+
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
+	}
+
+	public void setAno(Integer ano) {
+		this.ano = ano;
+	}
+
 	public String getPlaca() {
 		return placa;
 	}
@@ -64,11 +110,13 @@ public class Veiculo {
 		this.ano = ano;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
+
+
 }

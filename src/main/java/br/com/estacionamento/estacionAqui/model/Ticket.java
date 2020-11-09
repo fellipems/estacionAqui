@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 @Entity(name = "ticket")
 public class Ticket {
@@ -21,9 +22,18 @@ public class Ticket {
 	@Column(name = "hora_saida")
 	public Calendar horaSaida;
 	
-	@Column(nullable = false)
+	@Column
+	@NotEmpty(message = "Placa não pode estar vazia!")
 	public String placa;
 	
+	public String getPlaca() {
+		return placa;
+	}
+
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
+
 	public Integer getId() {
 		return id;
 	}
