@@ -55,5 +55,4 @@ public class ResponsavelDoEstacionamento {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-
 }

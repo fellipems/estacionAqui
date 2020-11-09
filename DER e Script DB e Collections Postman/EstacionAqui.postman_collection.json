@@ -1,0 +1,1061 @@
+{
+	"info": {
+		"_postman_id": "d6d8a86f-038d-4ace-be78-42b72956d5d1",
+		"name": "EstacionAqui",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cadastra cliente",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cpf\": \"11122233345\",\r\n\t\"nome\": \"Fellipe Maritns\",\r\n\t\"telefone\": \"48984844545\",\r\n\t\"email\": \"fellipe.martins@everis.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes/cadastra-cliente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"cadastra-cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastra cliente 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cpf\": \"44455566678\",\r\n\t\"nome\": \"Fernando Martins\",\r\n\t\"telefone\": \"489111222345\",\r\n\t\"email\": \"teste.martins@everis.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes/cadastra-cliente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"cadastra-cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta todos clientes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes/consulta-todos-clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"consulta-todos-clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta um cliente",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cpf\": \"11122233345\",\r\n\t\"nome\": \"Fellipe Maritns\",\r\n\t\"telefone\": \"48984844545\",\r\n\t\"email\": \"fellipe.martins@everis.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes/consulta-um-cliente/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"consulta-um-cliente",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualiza cadastro cliente",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cpf\": \"11122233345\",\r\n\t\"nome\": \"Fellipe Martins\",\r\n\t\"telefone\": \"48999994587\",\r\n\t\"email\": \"fellipe.martins@everis.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes/atualiza-cadastro/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"atualiza-cadastro",
+						"1"
+					]
+				},
+				"description": "Usado Patch para alterar somente um campo desejado, já que o PUT só altera todos."
+			},
+			"response": []
+		},
+		{
+			"name": "Exclui cliente",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cpf\": \"44455566678\",\r\n\t\"nome\": \"Fernando Martins\",\r\n\t\"telefone\": \"489111222345\",\r\n\t\"email\": \"teste.martins@everis.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes/excluir-cliente/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"excluir-cliente",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastra vaga",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipoPagamento\": \"Dinheiro\",\r\n    \"qtdVagas\": 50,\r\n    \"statusVaga\": \"LIVRE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/estacionamento/cadastra-vaga",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacionamento",
+						"cadastra-vaga"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta vagas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipoPagamento\": \"Cartao\",\r\n    \"qtdVagas\": 50,\r\n    \"statusVaga\": \"OCUPADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/estacionamento/consulta-qtd-vagas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacionamento",
+						"consulta-qtd-vagas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualiza vaga",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipoPagamento\": \"Cartao\",\r\n    \"qtdVagas\": 50,\r\n    \"statusVaga\": \"OCUPADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/estacionamento/atualiza-vaga/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacionamento",
+						"atualiza-vaga",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir vaga",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipoPagamento\": \"Cartao\",\r\n    \"qtdVagas\": 50,\r\n    \"statusVaga\": \"OCUPADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/estacionamento/excluir-vaga/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacionamento",
+						"excluir-vaga",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastra responsável",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Ferdinand\",\r\n    \"cargo\": \"Administrador\",\r\n    \"cpf\": \"11122233346\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/responsavel/cadastra-responsavel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"responsavel",
+						"cadastra-responsavel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consulta REsponsavel",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipoPagamento\": \"Cartao\",\r\n    \"qtdVagas\": 50,\r\n    \"statusVaga\": \"OCUPADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/responsavel/lista-responsavel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"responsavel",
+						"lista-responsavel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualiza responsavel",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"FERNANDIN\",\r\n    \"cargo\": \"Administrador\",\r\n    \"cpf\": \"11122233346\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/responsavel/atualiza-responsavel/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"responsavel",
+						"atualiza-responsavel",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleta responsvel",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"FERNANDIN\",\r\n    \"cargo\": \"Administrador\",\r\n    \"cpf\": \"11122233346\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/responsavel/deleta-responsavel/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"responsavel",
+						"deleta-responsavel",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cadastra ticket",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"horaEntrada\": 1528,\r\n    \"horaSaida\": 1559,\r\n    \"valor\": \"10.00\",\r\n    \"tipoPagamento\": \"Débito\",\r\n    \"placa\": \"AAA 1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ticket/cadastra-ticket",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ticket",
+						"cadastra-ticket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consulta todos tickets",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"horaEntrada\": 1528,\r\n    \"horaSaida\": 1559,\r\n    \"valor\": \"10.00\",\r\n    \"tipoPagamento\": \"Débito\",\r\n    \"placa\": \"AAA 1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ticket/consulta-todos-tickets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ticket",
+						"consulta-todos-tickets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consulta um ticket",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"horaEntrada\": 1528,\r\n    \"horaSaida\": 1559,\r\n    \"valor\": \"10.00\",\r\n    \"tipoPagamento\": \"Débito\",\r\n    \"placa\": \"AAA 1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ticket/consulta-um-ticket/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ticket",
+						"consulta-um-ticket",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "atualiza ticket",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"horaEntrada\": 1528,\r\n    \"horaSaida\": 1559,\r\n    \"valor\": \"15\",\r\n    \"tipoPagamento\": \"Débito\",\r\n    \"placa\": \"AAA 1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ticket/atualiza-ticket/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ticket",
+						"atualiza-ticket",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "excluir ticket",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"horaEntrada\": 1528,\r\n    \"horaSaida\": 1559,\r\n    \"valor\": \"15\",\r\n    \"tipoPagamento\": \"Débito\",\r\n    \"placa\": \"AAA 1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ticket/excluir-ticket/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ticket",
+						"excluir-ticket",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastra vaga",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"vaga\": \"MOTO\",\r\n    \"numeroVaga\": 15,\r\n    \"status\": \"OCUPADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vaga/cadastra-vaga",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vaga",
+						"cadastra-vaga"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consulta todas vagas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"vaga\": \"MOTO\",\r\n    \"numeroVaga\": 15,\r\n    \"status\": \"OCUPADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vaga/consulta-todas-vagas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vaga",
+						"consulta-todas-vagas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consulta uma vagas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"vaga\": \"MOTO\",\r\n    \"numeroVaga\": 15,\r\n    \"status\": \"OCUPADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vaga/consulta-uma-vaga/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vaga",
+						"consulta-uma-vaga",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Altera vaga",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"vaga\": \"CARRO\",\r\n    \"numeroVaga\": 15,\r\n    \"status\": \"OCUPADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vaga/atualiza-vaga/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vaga",
+						"atualiza-vaga",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleta vaga",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"vaga\": \"CARRO\",\r\n    \"numeroVaga\": 15,\r\n    \"status\": \"OCUPADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vaga/excluir-vaga/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vaga",
+						"excluir-vaga",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cadastra veiculo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"placa\": \"AAA 1234\",\r\n    \"cor\": \"Prata\",\r\n    \"ano\": 2015,\r\n    \"marca\": \"Volkswagen\",\r\n    \"modelo\": \"Gol\",\r\n    \"tipoVeiculo\": \"CARRO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/veiculos/cadastra-veiculo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculos",
+						"cadastra-veiculo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista veiculos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"placa\": \"AAA 1234\",\r\n    \"cor\": \"Prata\",\r\n    \"ano\": 2015,\r\n    \"marca\": \"Volkswagen\",\r\n    \"modelo\": \"Gol\",\r\n    \"tipoVeiculo\": \"CARRO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/veiculos/lista-veiculos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculos",
+						"lista-veiculos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consulta um veiculo",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"placa\": \"AAA 1234\",\r\n    \"cor\": \"Prata\",\r\n    \"ano\": 2015,\r\n    \"marca\": \"Volkswagen\",\r\n    \"modelo\": \"Gol\",\r\n    \"tipoVeiculo\": \"CARRO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/veiculos/consulta-um-veiculo/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculos",
+						"consulta-um-veiculo",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "altera veiculo",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"placa\": \"AAA 1234\",\r\n    \"cor\": \"Prata\",\r\n    \"ano\": 2015,\r\n    \"marca\": \"Volkswagen\",\r\n    \"modelo\": \"Gol\",\r\n    \"tipoVeiculo\": \"CARRO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/veiculos/atualiza-veiculo/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculos",
+						"atualiza-veiculo",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleta veiculo",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"placa\": \"AAA 1234\",\r\n    \"cor\": \"Prata\",\r\n    \"ano\": 2015,\r\n    \"marca\": \"Volkswagen\",\r\n    \"modelo\": \"Gol\",\r\n    \"tipoVeiculo\": \"CARRO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/veiculos/deleta-veiculo/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculos",
+						"deleta-veiculo",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

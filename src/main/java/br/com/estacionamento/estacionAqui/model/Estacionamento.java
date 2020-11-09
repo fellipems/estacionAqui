@@ -1,9 +1,9 @@
 package br.com.estacionamento.estacionAqui.model;
 
-import java.util.Calendar;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,24 +16,27 @@ public class Estacionamento {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
-	
-	@Column(name = "hora_entrada")
-	private Calendar horaEntrada;
-	
-	@Column(name = "hora_saida")
-	private Calendar horaSaida;
-	
-	@Column(name = "tipo_pagamento")
-	private String tipoPagamento;
+	private Long id;
 	
 	@Column(name = "qtd_vagas")
 	private int qtdVagas;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "status_vaga")
+	private StatusVaga statusVaga;
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "RESPONSAVEL_id_responsavel")
 	private ResponsavelDoEstacionamento responsavel;
 	
+	public StatusVaga getStatusVaga() {
+		return statusVaga;
+	}
+
+	public void setStatusVaga(StatusVaga statusVaga) {
+		this.statusVaga = statusVaga;
+	}
+
 	public ResponsavelDoEstacionamento getResponsavel() {
 		return responsavel;
 	}
@@ -50,35 +53,11 @@ public class Estacionamento {
 		this.qtdVagas = qtdVagas;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Calendar getHoraEntrada() {
-		return horaEntrada;
-	}
-
-	public void setHoraEntrada(Calendar horaEntrada) {
-		this.horaEntrada = horaEntrada;
-	}
-
-	public Calendar getHoraSaida() {
-		return horaSaida;
-	}
-
-	public void setHoraSaida(Calendar horaSaida) {
-		this.horaSaida = horaSaida;
-	}
-
-	public String getTipoPagamento() {
-		return tipoPagamento;
-	}
-
-	public void setTipoPagamento(String tipoPagamento) {
-		this.tipoPagamento = tipoPagamento;
 	}
 }

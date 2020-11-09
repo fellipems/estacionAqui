@@ -1,6 +1,6 @@
 package br.com.estacionamento.estacionAqui.model;
 
-import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,18 +14,32 @@ public class Ticket {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Integer id;
+	private Long id;
 	
 	@Column(name = "hora_entrada")
-	public Calendar horaEntrada;
+	private Date horaEntrada;
 	
 	@Column(name = "hora_saida")
-	public Calendar horaSaida;
+	private Date horaSaida;
+	
+	@Column
+	private Double valor;
+	
+	@Column(name = "tipo_pagamento")
+	private String tipoPagamento;
 	
 	@Column
 	@NotEmpty(message = "Placa não pode estar vazia!")
-	public String placa;
+	private String placa;
 	
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
+
 	public String getPlaca() {
 		return placa;
 	}
@@ -34,27 +48,27 @@ public class Ticket {
 		this.placa = placa;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public Calendar getHoraEntrada() {
+	public Date getHoraEntrada() {
 		return horaEntrada;
 	}
 
-	public void setHoraEntrada(Calendar horaEntrada) {
+	public void setHoraEntrada(Date horaEntrada) {
 		this.horaEntrada = horaEntrada;
 	}
 
-	public Calendar getHoraSaida() {
+	public Date getHoraSaida() {
 		return horaSaida;
 	}
 
-	public void setHoraSaida(Calendar horaSaida) {
+	public void setHoraSaida(Date horaSaida) {
 		this.horaSaida = horaSaida;
 	}
 }

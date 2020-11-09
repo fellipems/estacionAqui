@@ -1,7 +1,5 @@
 package br.com.estacionamento.estacionAqui.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -11,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotEmpty;
 
@@ -42,9 +39,9 @@ public class Veiculo {
 	@Column(name = "tipo_veiculo")
 	private TipoVeiculo tipoVeiculo;
 
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "TIPO_VEICULO_id_veiculo")
-	private List<TipoVeiculoPreco> precoPorTipo;
+	private TipoVeiculoPreco precoPorTipo;
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "TICKET_id_ticket")
@@ -65,12 +62,20 @@ public class Veiculo {
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
+	
+	public TipoVeiculo getTipoVeiculo() {
+		return tipoVeiculo;
+	}
 
-	public List<TipoVeiculoPreco> getPrecoPorTipo() {
+	public void setTipoVeiculo(TipoVeiculo tipoVeiculo) {
+		this.tipoVeiculo = tipoVeiculo;
+	}
+
+	public TipoVeiculoPreco getPrecoPorTipo() {
 		return precoPorTipo;
 	}
 
-	public void setPrecoPorTipo(List<TipoVeiculoPreco> precoPorTipo) {
+	public void setPrecoPorTipo(TipoVeiculoPreco precoPorTipo) {
 		this.precoPorTipo = precoPorTipo;
 	}
 
