@@ -12,7 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 
-
 @Entity(name = "cliente")
 public class Cliente {
 
@@ -37,7 +36,7 @@ public class Cliente {
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "VEICULO_id_veiculo")
 	private List<Veiculo> veiculo;
-	
+
 	public List<Veiculo> getVeiculo() {
 		return veiculo;
 	}

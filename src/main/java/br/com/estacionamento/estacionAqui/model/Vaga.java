@@ -21,26 +21,26 @@ public class Vaga {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo_vaga")
 	private TipoVeiculo vaga;
-	
+
 	@Column(name = "num_vaga")
 	private Long numeroVaga;
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(name = "status")
 	private StatusVaga status;
-	
+
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "VEICULO_id_veiculo")
 	private Veiculo veiculo;
-	
+
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "ESTACIONAMENTO_id_estacionamento")
-	private List<Estacionamento> estacionamento; 
-	
+	private List<Estacionamento> estacionamento;
+
 	public Veiculo getVeiculo() {
 		return veiculo;
 	}
@@ -60,7 +60,7 @@ public class Vaga {
 	public Long getId() {
 		return id;
 	}
-  
+
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -88,5 +88,4 @@ public class Vaga {
 	public void setStatus(StatusVaga status) {
 		this.status = status;
 	}
-
 }

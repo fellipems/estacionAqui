@@ -15,23 +15,23 @@ public class Ticket {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(name = "hora_entrada")
 	private Date horaEntrada;
-	
+
 	@Column(name = "hora_saida")
 	private Date horaSaida;
-	
+
 	@Column
 	private Double valor;
-	
+
 	@Column(name = "tipo_pagamento")
 	private String tipoPagamento;
-	
+
 	@Column
 	@NotEmpty(message = "Placa não pode estar vazia!")
 	private String placa;
-	
+
 	public Double getValor() {
 		return valor;
 	}

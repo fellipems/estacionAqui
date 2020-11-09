@@ -22,38 +22,37 @@ import br.com.estacionamento.estacionAqui.repository.ClienteRepository;
 
 @RestController
 @RequestMapping("/clientes")
-public class ClienteController {  // receber requisições. desenvolver nossos endpoints
-	
+public class ClienteController {
+
 	@Autowired
 	private ClienteRepository cr;
-	
+
 	@GetMapping(path = "/consulta-todos-clientes")
 	public ResponseEntity<List<Cliente>> consultaCliente() {
-		return ResponseEntity.ok(cr.findAll());  // .ok para retornar um status de sucesso
+		return ResponseEntity.ok(cr.findAll());
 	}
-	
+
 	@GetMapping(path = "/consulta-um-cliente/{id}")
-	public ResponseEntity<Cliente> consultaUmCliente(@PathVariable("id") Long id){
-		return cr.findById(id)
-				.map(record -> ResponseEntity.ok().body(record)) // record = linha que estamos retornando
-				.orElse(ResponseEntity.notFound().build()); // caso não ache, retorne um notFound
+	public ResponseEntity<Cliente> consultaUmCliente(@PathVariable("id") Long id) {
+		return cr.findById(id).map(record -> ResponseEntity.ok().body(record))
+				.orElse(ResponseEntity.notFound().build());
 	}
-	
+
 	@PostMapping(path = "/cadastra-cliente")
-	@ResponseStatus(HttpStatus.CREATED)  // devolver status CREATED com sucesso
-	public Cliente cadastraCliente(@RequestBody @Valid Cliente cli) {  // @RequestBody corpo da nossa requisição vai ser convertido para objeto java
+	@ResponseStatus(HttpStatus.CREATED)
+	public Cliente cadastraCliente(@RequestBody @Valid Cliente cli) {
 		return cr.save(cli);
 	}
-		
+
 	@PatchMapping(path = "/atualiza-cadastro/{id}")
-	public ResponseEntity<Cliente> atualizar(@PathVariable("id") Long id, @Valid @RequestBody Cliente cliente){
+	public ResponseEntity<Cliente> atualizar(@PathVariable("id") Long id, @Valid @RequestBody Cliente cliente) {
 		cliente.setId(id);
-		return ResponseEntity.ok(cr.save(cliente)); //se tem o id ele atualiza os dados, se não tiver ele cria um novo
+		return ResponseEntity.ok(cr.save(cliente));
 	}
-	
+
 	@DeleteMapping(path = "/excluir-cliente/{id}")
-	public ResponseEntity<Integer> excluirCliente(@PathVariable("id") Long id){
+	public ResponseEntity<Integer> excluirCliente(@PathVariable("id") Long id) {
 		cr.deleteById(id);
-		return ResponseEntity.ok(1);  // retorna 1 se excluiu corretamente
+		return ResponseEntity.ok(1);
 	}
 }

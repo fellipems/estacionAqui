@@ -57,5 +57,4 @@ public class VeiculoController {
 		vr.deleteById(id);
 		return ResponseEntity.ok(1);
 	}
-
 }

@@ -34,7 +34,7 @@ public class Veiculo {
 
 	@Column(name = "marca")
 	private String marca;
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo_veiculo")
 	private TipoVeiculo tipoVeiculo;
@@ -46,7 +46,7 @@ public class Veiculo {
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "TICKET_id_ticket")
 	private Ticket ticket;
-	
+
 	public String getModelo() {
 		return modelo;
 	}
@@ -62,7 +62,7 @@ public class Veiculo {
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
-	
+
 	public TipoVeiculo getTipoVeiculo() {
 		return tipoVeiculo;
 	}
@@ -122,6 +122,4 @@ public class Veiculo {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-
 }

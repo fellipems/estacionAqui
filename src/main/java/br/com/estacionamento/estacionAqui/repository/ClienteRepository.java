@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import br.com.estacionamento.estacionAqui.model.Cliente;
 
-@Repository   // classe para interagir com banco de dados
+@Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 	 
 }

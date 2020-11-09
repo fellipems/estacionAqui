@@ -17,18 +17,18 @@ public class Estacionamento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@Column(name = "qtd_vagas")
 	private int qtdVagas;
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(name = "status_vaga")
 	private StatusVaga statusVaga;
-	
+
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "RESPONSAVEL_id_responsavel")
 	private ResponsavelDoEstacionamento responsavel;
-	
+
 	public StatusVaga getStatusVaga() {
 		return statusVaga;
 	}

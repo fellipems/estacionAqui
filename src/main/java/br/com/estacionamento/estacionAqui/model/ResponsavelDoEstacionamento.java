@@ -13,17 +13,17 @@ public class ResponsavelDoEstacionamento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@NotEmpty(message = "Nome não pode estar vazio!")
 	private String nome;
-	
+
 	@NotEmpty(message = "Necessário um cargo!")
 	private String cargo;
 
 	@Column(name = "cpf", length = 11, unique = true)
 	@NotEmpty(message = "CPF não pode estar vazio!")
 	private String cpf;
-	
+
 	public Long getId() {
 		return id;
 	}

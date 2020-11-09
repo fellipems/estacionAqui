@@ -8,18 +8,18 @@ import javax.persistence.Id;
 
 @Entity(name = "tipo_veiculo_preco")
 public class TipoVeiculoPreco {
-	
+
 	@Id
 	@Column(name = "id_tipo")
 	private Integer id;
-	
+
 	@Column(name = "preco_tipo")
 	private double preco;
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo")
 	private TipoVeiculo tipo;
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -43,5 +43,4 @@ public class TipoVeiculoPreco {
 	public void setTipo(TipoVeiculo tipo) {
 		this.tipo = tipo;
 	}
-
 }
